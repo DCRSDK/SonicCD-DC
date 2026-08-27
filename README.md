@@ -19,9 +19,12 @@ What doesn't work:
 
 Dev menu is enabled by default and is accessed by pressing the Y button. When selecting stages in the Dev menu press Start button for regular play, or the A button for debug mode)
 
+
 **Special Thanks**
 + Rubberduckycooly & everyone involved with the RSDKv3 decompilation - without that none of this would have been possible
 + SF94 & everyone involved with the Sonic Mania Dreamcast port - this port was largely inspired by it, you guys rock!
+
+
 
 **Notice regarding AI use:** 
 + This was almost entirely created using Claude AI. I do not consider myself a coder, more a project director. If you have any views regarding AI use that would otherwise prevent you from trying this port out, that's fine. Move along and enjoy your day.
