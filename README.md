@@ -1,5 +1,8 @@
 # **Sonic CD 2011 for SEGA Dreamcast**
 + A Sonic CD/RSDKv3 port for SEGA Dreamcast based on the RSDKv3 Decompilation, using the mobile version as base.
+  
++ Requires ffmpeg and python3 for asset generation, as well as existing KallistiOS and mkdcdisc install for compiling the .elf and building the CDI.
++ Build in Linux or MacOS environments, or Windows via WSL (Debian or Ubuntu based preferably)
 
 + Build from your own KallistiOS setup by cloning this git and following the instructions in DC_Build_Guide.md
 + Bring your own Sonic CD Data.rsdk (MUST be mobile version, PC 2011 and Origins are untested, and presumed unsupported), as well as FMV files (these can be sourced from anywhere, so long as you have seperate ones for US and JP soundtracks, encoded into mp4 DC_Build_Guide.md details what you should be naming them as).
