@@ -1,0 +1,68 @@
+def buildAsLibrary = project.hasProperty('BUILD_AS_LIBRARY')
+def buildAsApplication = !buildAsLibrary
+if (buildAsApplication) {
+    apply plugin: 'com.android.application'
+}
+else {
+    apply plugin: 'com.android.library'
+}
+
+def autobuildFlag = false
+
+android {
+    ndkVersion "22.1.7171670"
+    compileSdkVersion 29
+    defaultConfig {
+        if (buildAsApplication) {
+            applicationId "com.decomp.rsdkv3"
+        }
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.3.3"
+        if(project.hasProperty("RETRO_DISABLE_PLUS"))
+            autobuildFlag = true
+        externalNativeBuild {
+            cmake {
+                arguments "-DAPP_PLATFORM=android-16", "-DANDROID_STL=c++_static", "-DPLATFORM=Android", "-DRETRO_DISABLE_PLUS=$autobuildFlag"
+                abiFilters 'armeabi-v7a', 'arm64-v8a'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    if (!project.hasProperty('EXCLUDE_NATIVE_LIBS')) {
+        sourceSets.main {
+            jniLibs.srcDir 'libs'
+        }
+        externalNativeBuild {
+            cmake {
+                path 'jni/CMakeLists.txt'
+            }
+        }
+       
+    }
+    lintOptions {
+        abortOnError false
+    }
+    
+    if (buildAsLibrary) {
+        libraryVariants.all { variant ->
+            variant.outputs.each { output ->
+                def outputFile = output.outputFile
+                if (outputFile != null && outputFile.name.endsWith(".aar")) {
+                    def fileName = "com.decomp.rsdkv3.aar"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+}
