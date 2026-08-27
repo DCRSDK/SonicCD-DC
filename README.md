@@ -26,5 +26,6 @@ Dev menu is enabled by default and is accessed by pressing the Y button. When se
 
 
 
-**Notice regarding AI use:** 
+**Notice regarding AI use:**
+
 This was almost entirely created using Claude AI. I do not consider myself a coder, more a project director. If you have any views regarding AI use that would otherwise prevent you from trying this port out, that's fine. Move along and enjoy your day.
