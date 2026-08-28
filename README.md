@@ -33,7 +33,7 @@ Dev menu is enabled by default and is accessed by pressing the Y button. When se
 **Special Thanks**
 + Rubberduckycooly & everyone involved with the RSDKv3 decompilation - without that none of this would have been possible
 + SF94 & everyone involved with the Sonic Mania Dreamcast port - this port was largely inspired by it, you guys rock!
-+ Everyone who helped me behinds the scenes - you're all the best!
++ Everyone who helped me behind the scenes - you're all the best!
 
 
 **Notice regarding AI use:**
