@@ -7,6 +7,8 @@ Before you start - Here are the filenames you should be naming your FMV mp4 file
 | `Bad_Ending.mp4`    | Bad Ending, JP  |
 | `Bad_EndingUS.mp4`  | Bad Ending, US  |
 
+Note: The default ones in the apk will be found in the /res/ directory within the apk, you shouldn't need to rename these since the converter already detects the mobile naming conventions. discard the pencil test and 2 SEGA Forever videos, those are unneeded. If you source your mp4 files from elsewhere (ie, if you want to re implement the JP vocal tracks since the mobile version only has instrumentals for those), you must following the naming conventions above, and the mp4 file you being along must be in 4:3 aspect ratio.
+
 After launching terminal and booting into your KallistiOS environ run the following from the root of the repo:
 
 If targeting CDI:
