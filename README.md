@@ -30,7 +30,7 @@ NO ASSETS ARE PROVIDED IN THIS RELEASE.
 + Achievements Menu
 + Anything else I may have missed or overlooked in testing (you tell me)
 
-Dev menu is enabled by default and is accessed by pressing the Y button. When selecting stages in the Dev menu press Start button for regular play, or the A button for debug mode. This can be changed by toggling it off in the settings.ini in the /dreamcast directory before committing to CDI if you so wish.
+Dev menu is enabled by default and is accessed by pressing the Y button. When selecting stages in the Dev menu press Start button for regular play, or the A button for debug mode. You can turn off Dev menu by toggling it off in the settings.ini in the /dreamcast directory before committing to CDI if you so wish.
 
 
 **Special Thanks**
