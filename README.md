@@ -1,6 +1,7 @@
 # **Sonic CD 2011 for SEGA Dreamcast**
 A Sonic CD/RSDKv3 port for SEGA Dreamcast based on the RSDKv3 Decompilation, using the mobile version as base.
 
+![Alt Text](/header.png)
 <p align="center">
   <a href="https://youtu.be/PUB0FSqZvvI">
     <img src="https://youtube.com" alt="Watch the video" width="600">
