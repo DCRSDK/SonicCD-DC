@@ -16,7 +16,7 @@ A Sonic CD/RSDKv3 port for SEGA Dreamcast based on the RSDKv3 Decompilation, usi
 
 NO ASSETS ARE PROVIDED IN THIS RELEASE.
 
-What Works:
+**What Works:**
 + Sonic CD full game including Special Stages
 + JP and US soundtracks
 + Opening and Ending FMVs
@@ -24,7 +24,7 @@ What Works:
 + D.A. Garden, level select and sound test (must be unlocked through play to access from main menu)
 + Saves (including custom icon in the Dreamcast BIOS save menu)
 
-What doesn't work:
+**What doesn't work:**
 + Leaderboards Menu
 + Achievements Menu
 + Anything else I may have missed or overlooked in testing (you tell me)
