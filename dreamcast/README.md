@@ -1,6 +1,6 @@
 # Dreamcast asset conversion — Sonic CD / RSDKv3
 
-    ./generate_assets.sh /path/to/build-dc/Data.rsdk
+    ./generate_assets.sh <path to Data.rsdk>
 
 Unpacks `Data.rsdk` and converts the two asset classes the Dreamcast build
 cannot read as shipped. Everything else is left inside the datafile.
