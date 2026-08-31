@@ -8,7 +8,7 @@ A Sonic CD/RSDKv3 port for SEGA Dreamcast based on the RSDKv3 Decompilation, usi
   </a>
 </p>
 
-  
++ Build locally or by using the autobuilder [HERE](https://colab.research.google.com/drive/1Iy9I1eUzaA6Z-ckLA0nrTYF4QGs75ezq?usp=drive_link)  
 + Requires ffmpeg and python3 for asset generation, as well as existing KallistiOS and mkdcdisc install for compiling the .elf and building the CDI.
 + Compatible with GCC 14.3 / KOS 2.2.x. Build with anything else at your own risk.
 + Build in Linux or MacOS environments, or Windows via WSL (Debian or Ubuntu based preferably)
