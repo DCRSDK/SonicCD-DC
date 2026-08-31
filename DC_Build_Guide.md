@@ -40,7 +40,7 @@ Keep note of the settings.ini in the /dreamcast dir - this will be required.
 
 Finally run mkdcdisc in terminal with the following command to generate your CDI
 
-`./builddir/mkdcdisc -e [Path to RSDKv3.elf] -d [path to Data dir] -d  [path to videos dir' -f 'path to Data.rsdk] -f [path to settings.ini] -N -n SonicCD -o SonicCD.cdi`
+`./builddir/mkdcdisc -e [Path to RSDKv3.elf] -d [path to Data dir] -d  [path to videos dir] -f 'path to Data.rsdk] -f [path to settings.ini] -N -n SonicCD -o SonicCD.cdi`
 
 if using DCload the folder structure should be as the following:
 
