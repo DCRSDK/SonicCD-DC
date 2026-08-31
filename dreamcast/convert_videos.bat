@@ -58,8 +58,8 @@ if not exist ".\out" mkdir ".\out"
 
 rem  Mobile filename -> the name the engine asks for.
 rem  Edit the right-hand side if your files are named differently.
-call :conv "iJ" "Opening"
-call :conv "-m" "OpeningUS"
+call :conv "-m" "Opening"
+call :conv "iJ" "OpeningUS"
 call :conv "XE" "Good_Ending"
 call :conv "jl" "Good_EndingUS"
 call :conv "Xg" "Bad_Ending"

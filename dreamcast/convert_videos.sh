@@ -64,8 +64,8 @@ OUT_DIR="${2:-$SRC_DIR/out}"
 #  Edit the left-hand side if your files are named differently.
 #  KEEP THIS TABLE IDENTICAL TO THE :conv CALLS IN convert_videos.bat.
 MAPPINGS=(
-    "iJ:Opening"
-    "-m:OpeningUS"
+    "-m:Opening"
+    "iJ:OpeningUS"
     "XE:Good_Ending"
     "jl:Good_EndingUS"
     "Xg:Bad_Ending"
@@ -147,7 +147,10 @@ for entry in "${MAPPINGS[@]}"; do
     # directory and ffmpeg is asked to overwrite its own input. ffmpeg itself
     # bails, but the failure handler below would then delete what it thinks is
     # a half-written output and is actually the user's only copy.
-    if [ "$(readlink -f "$src")" = "$(readlink -f "$dst")" ]; then
+    # `cd && pwd -P` rather than `readlink -f`: BSD readlink had no -f until
+    # macOS 12.3, and this is the idiom the other dreamcast/ scripts already use.
+    abspath() { printf '%s/%s\n' "$(cd -P -- "$(dirname -- "$1")" && pwd -P)" "$(basename -- "$1")"; }
+    if [ "$(abspath "$src")" = "$(abspath "$dst")" ]; then
         echo "  SKIP $dst_name - source and destination are the same file" >&2
         echo "         (use a different output directory)" >&2
         skipped=$((skipped + 1))
