@@ -1212,7 +1212,7 @@ int DC_InitRenderDevice()
 #endif
 #endif
 #else
-    vid_set_mode(DM_320x240, PM_RGB565);
+    vid_set_mode(vid_check_cable() != CT_VGA ? DM_320x240_NTSC : DM_320x240_VGA, PM_RGB565);
     vid_empty();
 #endif
 
