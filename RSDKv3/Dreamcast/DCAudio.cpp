@@ -86,7 +86,7 @@
 // Set to 2 and re-convert with `-ac 2` for stereo music; the byte<->frame
 // arithmetic below follows automatically.
 #ifndef DC_MUSIC_CHANNELS
-#define DC_MUSIC_CHANNELS (1)
+#define DC_MUSIC_CHANNELS (2)
 #endif
 
 // How much audio the SPU holds ahead of the game. THIS IS THE LATENCY.
