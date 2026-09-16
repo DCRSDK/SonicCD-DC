@@ -2967,7 +2967,56 @@ void ProcessScript(int scriptCodeStart, int jumpTableStart, byte scriptSub)
                     case VAR_KEYPRESSLEFT: scriptEng.operands[i] = keyPress.left; break;
                     case VAR_KEYPRESSRIGHT: scriptEng.operands[i] = keyPress.right; break;
                     case VAR_KEYPRESSBUTTONA: scriptEng.operands[i] = keyPress.A; break;
+#if RETRO_USING_KOS
+                    // ---- B MUST NOT PAUSE THE GAME ----
+                    //
+                    // SEGA Forever's mobile bytecode opens the pause menu on
+                    // ButtonB as well as Start. On a phone that costs nothing --
+                    // there is no physical B -- but on a Dreamcast pad B is a jump
+                    // button, and pausing mid-run every time you jump is about the
+                    // most disruptive thing it could do.
+                    //
+                    // It cannot be fixed in the scripts. Origins removed the check,
+                    // so the decompiled scripts (which are Origins-era) do not show
+                    // it at all -- ButtonB appears nowhere near STAGE_PAUSED in any
+                    // of them -- and the bytecode we ship is the mobile build, which
+                    // we cannot edit.
+                    //
+                    // Nor can it be fixed by gating CALLBACK_PAUSE_REQUESTED: with
+                    // DevMenu=true in settings.ini, Options.DevMenuFlag is true and
+                    // PlayerObject.txt takes the branch that sets Object[9].Type
+                    // itself, never reaching the callback.
+                    //
+                    // So it is fixed here: THE SCRIPT does not get to see a B press
+                    // while a stage is running. The ENGINE still does -- jump comes
+                    // from ProcessPlayerControl() in Player.cpp
+                    // (jumpHold = keyDown.C | keyDown.B | keyDown.A), which reads
+                    // keyPress/keyDown directly rather than through this variable --
+                    // so B jumps exactly as it did.
+                    //
+                    // Presentation stages are untouched, and that is every screen
+                    // where B legitimately means "back": title, all menus, Time
+                    // Attack, the D.A. Garden, the secrets screens, the credits.
+                    //
+                    // What it costs, all in gameplay and all trivial:
+                    //   AttractMode.txt / DeathEvent.txt   B no longer skips the
+                    //       demo or the game-over fade. A and C still do; the three
+                    //       were interchangeable there.
+                    //   TouchControls.txt                  touch-only, and there is
+                    //       no touchscreen on a Dreamcast.
+                    //   PlayerObject.txt "Turn Debug Mode" already dead under mobile
+                    //       bytecode -- Stage.DebugMode is only read inside
+                    //       #platform: Standard, so TempValue0 is always false.
+                    //
+                    // KeyDown is deliberately NOT suppressed. The pause is
+                    // edge-triggered, so KeyPress is the one that matters, and
+                    // leaving the hold intact keeps this as narrow as the bug allows.
+                    case VAR_KEYPRESSBUTTONB:
+                        scriptEng.operands[i] = (activeStageList == STAGELIST_PRESENTATION) ? keyPress.B : 0;
+                        break;
+#else
                     case VAR_KEYPRESSBUTTONB: scriptEng.operands[i] = keyPress.B; break;
+#endif
                     case VAR_KEYPRESSBUTTONC: scriptEng.operands[i] = keyPress.C; break;
                     case VAR_KEYPRESSSTART: scriptEng.operands[i] = keyPress.start; break;
                     case VAR_MENU1SELECTION: scriptEng.operands[i] = gameMenu[0].selection1; break;
